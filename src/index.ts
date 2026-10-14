@@ -8,6 +8,15 @@ import '@fontsource/source-serif-4/600.css';
 import '@fontsource/source-serif-4/400-italic.css';
 import '@fontsource/jetbrains-mono/400.css';
 import '@fontsource/jetbrains-mono/700.css';
+import '@fontsource/libre-franklin/400.css';
+import '@fontsource/libre-franklin/600.css';
+import '@fontsource/libre-franklin/700.css';
+import '@fontsource/libre-franklin/800.css';
+import '@fontsource/libre-franklin/900.css';
+import '@fontsource/libre-baskerville/400.css';
+import '@fontsource/libre-baskerville/700.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/oswald/700.css';
 import {Root} from './Root';
 
 registerRoot(Root);
