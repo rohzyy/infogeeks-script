@@ -1,0 +1,6 @@
+node_modules/
+out/
+.remotion/
+*.log
+# Rendered videos exceed GitHub's 100 MB file limit; see README.
+output/*.mp4

@@ -1,0 +1,59 @@
+QA report for output/H1B_Visa_AssemblyCut_1080p.mp4  (2026-10-14T13:25:13Z)
+== Container / streams
+index=0
+codec_name=h264
+codec_type=video
+width=1920
+height=1080
+pix_fmt=yuvj420p
+r_frame_rate=30/1
+index=1
+codec_name=aac
+codec_type=audio
+sample_rate=48000
+channels=2
+r_frame_rate=0/0
+duration=1260.011000
+size=238170029
+bit_rate=1512177
+== Exact frame count (decoded)
+frames=37800 (expected 37800 for full film)
+resolution OK 1920x1080
+== True-black gaps (>0.5 s; pixel luma <= 0.03, below the 0.055 charcoal design background)
+none
+== Loudness (EBU R128) and true peak
+[Parsed_ebur128_0 @ 0x557e773944c0] Summary:
+
+  Integrated loudness:
+    I:         -25.7 LUFS
+    Threshold: -37.4 LUFS
+
+  Loudness range:
+    LRA:        19.8 LU
+    Threshold: -51.5 LUFS
+    LRA low:   -46.1 LUFS
+    LRA high:  -26.3 LUFS
+
+  True peak:
+    Peak:       -7.8 dBFS
+== Silences longer than 6 s at -60 dB (expected: graphics-only passages)
+silence events: 146
+== Audio provenance
+Composition audio sources: only <Audio> elements in src/Documentary.tsx fed by public/assets/sound_effects (synthesised). OffthreadVideo is muted:
+24: * black at the cut are applied. Source audio is always muted.
+45:          muted
+no other <Audio> sources
+== Text audit
+Text audit OK: 146 scenes, ~30738 chars of on-screen props; no Telugu script, no Romanized Telugu, no overlays on stock.
+== Timing map
+OK: 146 scenes, 37800 frames (21:00:00), stock share 22.8%
+  00:00:00 – 01:45:00  Introduction (15 scenes)
+  01:45:00 – 04:10:00  Chapter 1: PERM vs H-1B (16 scenes)
+  04:10:00 – 07:00:00  Chapter 2: The Telugu Dream and the Four-Rung Ladder (21 scenes)
+  07:00:00 – 09:45:00  Chapter 3: The Mechanics and the Green Card Backlog (19 scenes)
+  09:45:00 – 12:30:00  Chapter 4: The Tightening Noose, 2017–2026 (20 scenes)
+  12:30:00 – 15:00:00  Chapter 5: The Silent Returnees (16 scenes)
+  15:00:00 – 17:15:00  Chapter 6: The Trap of Shortcuts — Farmington (18 scenes)
+  17:15:00 – 20:00:00  Chapter 7: The Reality Check and Survival Guide (15 scenes)
+  20:00:00 – 21:00:00  Outro (6 scenes)
+contact sheet: production/qa/H1B_Visa_AssemblyCut_1080p_contact.jpg (84 frames; labels are added to the sheet only, not the video)
