@@ -3,6 +3,8 @@ import {Composition} from 'remotion';
 import {Documentary, placeScenes} from './Documentary';
 import {SCENES} from './timeline';
 import {FPS, HEIGHT, TOTAL_FRAMES, WIDTH} from './theme';
+import {VoxEdit} from './vox/VoxEdit';
+import {VOX_FRAMES} from './vox/theme';
 
 // Stage C prototype: one of each required ingredient — clean stock footage,
 // standalone typography, a data visualisation, a source-screenshot scene and
@@ -24,5 +26,7 @@ export const Root: React.FC = () => (
       height={HEIGHT}
       defaultProps={{only: PROTOTYPE_IDS}}
     />
+    {/* Vox-style edit over the supplied Telugu voiceover (Nested_Sequence_01). */}
+    <Composition id="VoxEdit" component={VoxEdit} durationInFrames={VOX_FRAMES} fps={FPS} width={WIDTH} height={HEIGHT} />
   </>
 );

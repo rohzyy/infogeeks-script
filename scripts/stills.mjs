@@ -27,7 +27,8 @@ const jobs = (targets[0] === 'all' ? timing.scenes.map((s) => s.id) : targets).m
 
 mkdirSync(outDir, {recursive: true});
 const serveUrl = await bundle({entryPoint: path.resolve('src/index.ts')});
-const composition = await selectComposition({serveUrl, id: 'H1BDocumentary', browserExecutable});
+const compId = (args.find((a) => a.startsWith('--comp=')) ?? '--comp=H1BDocumentary').split('=')[1];
+const composition = await selectComposition({serveUrl, id: compId, browserExecutable});
 for (const j of jobs) {
   await renderStill({serveUrl, composition, frame: j.frame, output: path.join(outDir, `${j.name}.jpg`), imageFormat: 'jpeg', jpegQuality: 88, scale, browserExecutable});
   process.stdout.write(`${j.name} `);
