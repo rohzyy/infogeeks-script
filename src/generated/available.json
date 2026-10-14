@@ -1,0 +1,21 @@
+{
+  "stock": {},
+  "screenshots": {},
+  "sfx": {
+    "amb_airport": "assets/sound_effects/amb_airport.wav",
+    "amb_city": "assets/sound_effects/amb_city.wav",
+    "amb_road": "assets/sound_effects/amb_road.wav",
+    "blip": "assets/sound_effects/blip.wav",
+    "click": "assets/sound_effects/click.wav",
+    "impact_soft": "assets/sound_effects/impact_soft.wav",
+    "notify": "assets/sound_effects/notify.wav",
+    "paper": "assets/sound_effects/paper.wav",
+    "pulse": "assets/sound_effects/pulse.wav",
+    "shimmer": "assets/sound_effects/shimmer.wav",
+    "stamp": "assets/sound_effects/stamp.wav",
+    "tick": "assets/sound_effects/tick.wav",
+    "typing": "assets/sound_effects/typing.wav",
+    "whoosh_low": "assets/sound_effects/whoosh_low.wav",
+    "whoosh_soft": "assets/sound_effects/whoosh_soft.wav"
+  }
+}

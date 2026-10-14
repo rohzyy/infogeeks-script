@@ -1,0 +1,4 @@
+timestamp,screenshot_id,url,result,http_status,file,notes
+2026-10-14T12:28:04.109Z,E-02,https://www.gulftoday.ae/news/2026/10/09/trump-freezes-green-cards-for-8-tech-giants-including-microsoft-and-indias-infosys-tata-wipro-and-hcl,failed,,,"page.goto: net::ERR_TUNNEL_CONNECTION_FAILED at https://www.gulftoday.ae/news/2026/10/09/trump-freezes-green-cards-for-8-tech-giants-including-microsoft-and-indias-infosys-tata-wipro-and-hcl"
+2026-10-14T12:28:04.680Z,E-14,https://www.dol.gov/newsroom/releases/eta/eta20260512,failed,,,"page.goto: net::ERR_TUNNEL_CONNECTION_FAILED at https://www.dol.gov/newsroom/releases/eta/eta20260512"
+2026-10-14T12:28:05.085Z,E-15,https://theprint.in/the-fineprint/indian-techies-returning-to-hyderabad-from-us/3003988/,failed,,,"page.goto: net::ERR_TUNNEL_CONNECTION_FAILED at https://theprint.in/the-fineprint/indian-techies-returning-to-hyderabad-from-us/3003988/"

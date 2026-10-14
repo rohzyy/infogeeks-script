@@ -1,0 +1,37 @@
+{
+  "name": "h1b-visa-documentary",
+  "version": "1.0.0",
+  "private": true,
+  "description": "21-minute H-1B investigative documentary (Remotion project)",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "timing": "node --experimental-strip-types --no-warnings scripts/build-timing.mjs",
+    "sfx": "python3 -I scripts/generate_sfx.py",
+    "check": "node --experimental-strip-types --no-warnings scripts/check-assets.mjs",
+    "check:strict": "node --experimental-strip-types --no-warnings scripts/check-assets.mjs --strict",
+    "manifests": "node --experimental-strip-types --no-warnings scripts/build-manifests.mjs",
+    "audit": "node --experimental-strip-types --no-warnings scripts/text-audit.mjs",
+    "capture": "node --experimental-strip-types --no-warnings scripts/capture-screenshots.mjs",
+    "fetch-stock": "node --experimental-strip-types --no-warnings scripts/fetch-stock.mjs",
+    "stills": "node scripts/stills.mjs",
+    "render:prototype": "bash scripts/render.sh prototype",
+    "render:preview": "bash scripts/render.sh preview",
+    "render:final": "bash scripts/render.sh final",
+    "qa": "bash scripts/qa.sh"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.1.0",
+    "@fontsource/jetbrains-mono": "^5.1.0",
+    "@fontsource/source-serif-4": "^5.1.0",
+    "@remotion/cli": "4.0.535",
+    "@remotion/media-utils": "4.0.535",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.535"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "playwright-core": "^1.56.1",
+    "typescript": "5.6.3"
+  }
+}
