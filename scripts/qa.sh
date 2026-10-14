@@ -14,13 +14,13 @@ echo "QA report for $F  ($(date -u +%FT%TZ))"
 echo "== Container / streams"
 ffprobe -v error -show_entries format=duration,size,bit_rate:stream=index,codec_type,codec_name,width,height,r_frame_rate,pix_fmt,channels,sample_rate -of default=nw=1 "$F"
 echo "== Exact frame count (decoded)"
-FR=$(ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of csv=p=0 "$F")
+FR=$(ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of default=nw=1:nk=1 "$F")
 echo "frames=$FR (expected 37800 for full film)"
-W=$(ffprobe -v error -select_streams v:0 -show_entries stream=width -of csv=p=0 "$F")
-H=$(ffprobe -v error -select_streams v:0 -show_entries stream=height -of csv=p=0 "$F")
+W=$(ffprobe -v error -select_streams v:0 -show_entries stream=width -of default=nw=1:nk=1 "$F")
+H=$(ffprobe -v error -select_streams v:0 -show_entries stream=height -of default=nw=1:nk=1 "$F")
 [ -n "$EW" ] && { [ "$W" = "$EW" ] && [ "$H" = "$EH" ] && echo "resolution OK ${W}x${H}" || echo "RESOLUTION MISMATCH ${W}x${H} != ${EW}x${EH}"; }
-echo "== Black frames (>0.5 s, pixel threshold 0.10)"
-ffmpeg -hide_banner -nostats -i "$F" -vf "blackdetect=d=0.5:pix_th=0.10" -an -f null - 2>&1 | grep -o "black_start.*" || echo "none"
+echo "== True-black gaps (>0.5 s; pixel luma <= 0.03, below the 0.055 charcoal design background)"
+ffmpeg -hide_banner -nostats -i "$F" -vf "blackdetect=d=0.5:pix_th=0.03:pic_th=0.98" -an -f null - 2>&1 | grep -o "black_start.*" || echo "none"
 echo "== Loudness (EBU R128) and true peak"
 ffmpeg -hide_banner -nostats -i "$F" -vn -af "ebur128=peak=true" -f null - 2>&1 | sed -n '/Summary/,$p'
 echo "== Silences longer than 6 s at -60 dB (expected: graphics-only passages)"
@@ -43,7 +43,7 @@ console.log(keep.map(s=>((s.startFrame+Math.floor(s.durationFrames*0.65))/30).to
 TMP=$(mktemp -d)
 i=0
 while read -r T ID TC; do
-  ffmpeg -hide_banner -loglevel error -y -ss "$T" -i "$F" -frames:v 1 -vf "scale=640:-1,drawbox=y=ih-34:w=iw:h=34:color=black@0.75:t=fill,drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf:text='$TC  $ID':x=10:y=h-26:fontsize=18:fontcolor=white" "$TMP/$(printf %04d $i).jpg"
+  ffmpeg -nostdin -hide_banner -loglevel error -y -ss "$T" -i "$F" -frames:v 1 -vf "scale=640:-1,drawbox=y=ih-34:w=iw:h=34:color=black@0.75:t=fill,drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf:text='$TC  $ID':x=10:y=h-26:fontsize=18:fontcolor=white" "$TMP/$(printf %04d $i).jpg"
   i=$((i+1))
 done < /tmp/qa_times.txt
 COLS=6
